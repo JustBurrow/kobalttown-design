@@ -21,7 +21,7 @@
   <a class="navbar-brand" href="./index.html">Kobalttown</a>
   <div class="collapse navbar-collapse navbar-toggleable">
     <ul class="navbar-nav">
-      <li class="nav-item dropdown" th:remove="all">
+      <li class="nav-item dropdown" title="Navbar(GNB) 참고용 정보입니다." th:remove="all">
         <a class="nav-link btn-link dropdown-toggle" href="#" data-toggle="dropdown">참고</a>
         <ul class="dropdown-menu">
           <li class="dropdown-item">
@@ -44,7 +44,63 @@
 </nav>
 <div class="container-fluid">
   <main>
-    <h1>Kobalttown</h1>
+    <div class="jumbotron"></div>
+    <div class="row">
+      <div class="col">
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title">SIGN-UP</h2>
+          </div>
+          <form id="signup-form" class="card-block" action="./index.html" method="post">
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="signup-email">EMAIL</label>
+              <div class="col-md-10">
+                <input id="signup-email" class="form-control" type="email" name="email" required="required"/>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="signup-password">PASS</label>
+              <div class="col-md-10">
+                <input id="signup-password" class="form-control" type="password" name="password" required="required"/>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="signup-confirm">CONFIRM</label>
+              <div class="col-md-10">
+                <input id="signup-confirm" class="form-control" type="password" name="confirm" required="required"/>
+              </div>
+            </div>
+          </form>
+          <div class="card-footer">
+            <button class="btn btn-primary" form="signup-form">SIGN-UP</button>
+          </div>
+        </section>
+      </div>
+      <div class="col">
+        <section class="card">
+          <div class="card-header">
+            <h2 class="card-title">LOG-IN</h2>
+          </div>
+          <form id="login-form" class="card-block" action="./dashboard.html" method="post">
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="login-email">EMAIL</label>
+              <div class="col-md-10">
+                <input id="login-email" class="form-control" type="email" name="email" required="required"/>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-md-2 col-form-label" for="login-password">PASS</label>
+              <div class="col-md-10">
+                <input id="login-password" class="form-control" type="password" name="password" required="required"/>
+              </div>
+            </div>
+          </form>
+          <div class="card-footer">
+            <button class="btn btn-primary" form="login-form">LOG-IN</button>
+          </div>
+        </section>
+      </div>
+    </div>
   </main>
 </div>
 </body>
