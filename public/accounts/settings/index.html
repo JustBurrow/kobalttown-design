@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta name="author" content="just.burrow@lul.kr" th:remove="all"/>
   <meta name="repository" content="https://github.com/JustBurrow/kobalttown" th:remove="all"/>
@@ -7,7 +7,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <title>GNB : user - Kobalttown</title>
+  <title>Settings - Kobalttown</title>
   <link rel="icon" href="../../favicon.ico"/>
 
   <link rel="stylesheet" href="../../css/bootstrap.css"/>
@@ -30,6 +30,9 @@
         <button id="nav-item-account" class="nav-link btn btn-link btn-sm dropdown-toggle" type="button" data-toggle="dropdown">사용자</button>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-item-account">
           <a class="dropdown-item" href="../../accounts/settings/index.html">Settings</a>
+          <div class="dropdown-divider"></div>
+          <form id="navbar-account-logout" class="ghost" action="../../index.html" method="post"></form>
+          <button class="dropdown-item" form="navbar-account-logout">LOG-OUT</button>
           <div class="dropdown-divider" th:remove="all"></div>
           <a class="dropdown-item" href="../../_component/gnb/user.html" th:remove="all">GNB Template</a>
           <a class="dropdown-divider" href="#" th:remove="all"></a>
@@ -44,10 +47,18 @@
   </div>
 </nav>
 <div class="container-fluid">
-  <main>
-    <h1>Navbar : user</h1>
-    <p>로그인한 유저용 <code>Navbar</code>(GNB) 템플릿입니다. 메뉴 항목이 늘어날 가능성이 있기 때문에, <code>참고</code> 항목을 <code>사용자</code> 항목 밑으로 옮깁니다.</p>
-  </main>
+  <div class="row">
+    <aside class="col-md-2">
+      <ul class="list-unstyled nav">
+        <li class="nav-item">
+          <a class="nav-link" href="password.html">Password</a>
+        </li>
+      </ul>
+    </aside>
+    <main class="col">
+      <h1>설정</h1>
+    </main>
+  </div>
 </div>
 </body>
 </html>
