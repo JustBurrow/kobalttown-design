@@ -28,7 +28,8 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" href="./_component/gnb/guest.html">GNB Template</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="https://kobalttown.firebaseapp.com" target="_blank">kobalttown.firebaseapp.com</a>
+          <a class="dropdown-item" href="https://kobalttown.firebaseapp.com"
+             target="_blank">kobalttown.firebaseapp.com</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="https://github.com/JustBurrow/kobalttown" target="_blank">GitHub</a>
           <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com" target="_blank">Bootstrap</a>
@@ -48,7 +49,7 @@
           <div class="card-header">
             <h2 class="card-title">SIGN-UP</h2>
           </div>
-          <form id="signup-form" class="card-block" action="./index.html" method="post">
+          <form id="signup-form" class="card-block" action="./index.html" method="post" th:action="@{/signup}">
             <div class="form-group row">
               <label class="col-md-2 col-form-label" for="signup-email">EMAIL</label>
               <div class="col-md-10">
@@ -78,7 +79,7 @@
           <div class="card-header">
             <h2 class="card-title">LOG-IN</h2>
           </div>
-          <form id="login-form" class="card-block" action="./dashboard.html" method="post">
+          <form id="login-form" class="card-block" action="./dashboard.html" method="post" th:action="@{/login}">
             <div class="form-group row">
               <label class="col-md-2 col-form-label" for="login-email">EMAIL</label>
               <div class="col-md-10">
