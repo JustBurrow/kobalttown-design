@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta name="author" content="just.burrow@lul.kr" th:remove="all"/>
   <meta name="repository" content="https://github.com/JustBurrow/kobalttown" th:remove="all"/>
@@ -7,20 +7,21 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <title>Dashboard - Kobalttown</title>
-  <link rel="icon" href="./favicon.ico" th:href="@{/favicon.ico}"/>
+  <title>GNB : user - Kobalttown</title>
+  <link rel="icon" href="../../favicon.ico"/>
 
-  <link rel="stylesheet" href="./css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
-  <link rel="stylesheet" href="./css/kobalttown.css" th:href="@{/css/kobalttown.css}"/>
+  <link rel="stylesheet" href="../../css/bootstrap.css"/>
+  <link rel="stylesheet" href="../../css/kobalttown.css"/>
 
-  <script type="application/javascript" src="./js/jquery-3.2.1.js" th:src="@{/js/jquery-3.2.1.js}"></script>
-  <script type="application/javascript" src="./js/tether.js" th:src="@{/js/tether.js}"></script>
-  <script type="application/javascript" src="./js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
-  <script type="application/javascript" src="./js/kobalttown.js" th:src="@{/js/kobalttown.js}"></script>
+  <script type="application/javascript" src="../../js/jquery-3.2.1.js"></script>
+  <script type="application/javascript" src="../../js/tether.js"></script>
+  <script type="application/javascript" src="../../js/bootstrap.js"></script>
+  <script type="application/javascript" src="../../js/kobalttown.js"></script>
 </head>
 <body>
-<div th:replace="_components/gnb/index :: gnb">
-  <nav class="fixed-top navbar nav navbar-toggleable navbar-inverse bg-inverse" role="navigation">
+<div>
+  <nav class="fixed-top navbar nav navbar-toggleable navbar-inverse bg-inverse" role="navigation" th:fragment="navbar">
+    <!--/*@thymesVar id="currentAccount" type="kr.lul.kobalttown.ms.account.borderline.dto.AccountDto"*/-->
     <a class="navbar-brand" href="../../dashboard.html">Kobalttown</a>
     <div class="collapse navbar-collapse navbar-toggleable">
       <ul class="navbar-nav">
@@ -31,15 +32,18 @@
         </li>
         <li class="nav-item navbar-toggler-right dropdown">
           <button id="nav-item-account" class="nav-link btn btn-link btn-sm dropdown-toggle" type="button"
-                  data-toggle="dropdown">사용자
+                  data-toggle="dropdown" th:text="${#authentication.principal.name}">계정
           </button>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-item-account">
-            <a class="dropdown-item" href="accounts/index.html">Settings</a>
+            <a class="dropdown-item" href="../../accounts/index.html" th:href="@{/accounts}">Profile</a>
+            <a class="dropdown-item" href="../../accounts/settings.html"
+               th:href="@{/accounts/settings}">Settings</a>
             <div class="dropdown-divider"></div>
-            <form id="navbar-account-logout" class="ghost" action="../../index.html" method="post"></form>
+            <form id="navbar-account-logout" class="ghost" action="../../index.html" method="post"
+                  th:action="@{/logout}"></form>
             <button class="dropdown-item" form="navbar-account-logout">LOG-OUT</button>
             <div class="dropdown-divider" th:remove="all"></div>
-            <a class="dropdown-item" href="./_components/gnb/index.html" th:remove="all">GNB Template</a>
+            <a class="dropdown-item" href="user.html" th:remove="all">GNB Template</a>
             <a class="dropdown-divider" href="#" th:remove="all"></a>
             <a class="dropdown-item" href="https://kobalttown.firebaseapp.com" target="_blank" th:remove="all">kobalttown.firebaseapp.com</a>
             <a class="dropdown-item" href="https://github.com/JustBurrow/kobalttown" target="_blank" th:remove="all">GitHub</a>
@@ -53,8 +57,17 @@
     </div>
   </nav>
 </div>
-<main class="container-fluid">
-  <h1>Dashboard</h1>
-</main>
+<div class="container-fluid">
+  <main>
+    <h1>Navbar : user</h1>
+    <p>로그인한 유저용 <code>Navbar</code>(GNB) 템플릿입니다. 메뉴 항목이 늘어날 가능성이 있기 때문에, <code>참고</code> 항목을 <code>사용자</code> 항목 밑으로
+      옮깁니다.</p>
+    <ul>
+      <li>
+        <a href="index.html">GNB 선택 템플릿</a>
+      </li>
+    </ul>
+  </main>
+</div>
 </body>
 </html>

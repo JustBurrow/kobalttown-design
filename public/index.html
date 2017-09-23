@@ -19,27 +19,29 @@
   <script type="application/javascript" src="./js/kobalttown.js"></script>
 </head>
 <body>
-<nav class="fixed-top navbar nav navbar-toggleable navbar-inverse bg-inverse" role="navigation">
-  <a class="navbar-brand" href="./index.html">Kobalttown</a>
-  <div class="collapse navbar-collapse navbar-toggleable">
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown" title="Navbar(GNB) 참고용 정보입니다." th:remove="all">
-        <a class="nav-link btn-link dropdown-toggle" href="#" data-toggle="dropdown">참고</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="./_component/gnb/guest.html">GNB Template</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="https://kobalttown.firebaseapp.com"
-             target="_blank">kobalttown.firebaseapp.com</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="https://github.com/JustBurrow/kobalttown" target="_blank">GitHub</a>
-          <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com" target="_blank">Bootstrap</a>
-          <a class="dropdown-item" href="https://jquery.com" target="_blank">jQuery</a>
-          <a class="dropdown-item" href="http://tether.io" target="_blank">Tether</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+<div th:replace="_components/gnb/index :: gnb">
+  <nav class="fixed-top navbar nav navbar-toggleable navbar-inverse bg-inverse" role="navigation">
+    <a class="navbar-brand" href="./index.html">Kobalttown</a>
+    <div class="collapse navbar-collapse navbar-toggleable">
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown" title="Navbar(GNB) 참고용 정보입니다." th:remove="all">
+          <a class="nav-link btn-link dropdown-toggle" href="#" data-toggle="dropdown">참고</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="_components/gnb/index.html">GNB Template</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://kobalttown.firebaseapp.com"
+               target="_blank">kobalttown.firebaseapp.com</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="https://github.com/JustBurrow/kobalttown" target="_blank">GitHub</a>
+            <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com" target="_blank">Bootstrap</a>
+            <a class="dropdown-item" href="https://jquery.com" target="_blank">jQuery</a>
+            <a class="dropdown-item" href="http://tether.io" target="_blank">Tether</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 <div class="container-fluid">
   <main>
     <div class="jumbotron"></div>
@@ -51,9 +53,15 @@
           </div>
           <form id="signup-form" class="card-block" action="./index.html" method="post" th:action="@{/signup}">
             <div class="form-group row">
-              <label class="col-md-2 col-form-label" for="signup-email">EMAIL</label>
+              <label class="col-2 form-form-label" for="signup-email">EMAIL</label>
               <div class="col-md-10">
                 <input id="signup-email" class="form-control" type="email" name="email" required="required"/>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-2 form-control-label" for="signup-name">NAME</label>
+              <div class="col">
+                <input id="signup-name" class="form-control" name="name" required="required"/>
               </div>
             </div>
             <div class="form-group row">
