@@ -19,39 +19,42 @@
   <script type="application/javascript" src="../js/kobalttown.js"></script>
 </head>
 <body>
-<nav class="fixed-top navbar nav navbar-toggleable navbar-inverse bg-inverse" role="navigation">
-  <a class="navbar-brand" href="../dashboard.html">Kobalttown</a>
-  <div class="collapse navbar-collapse navbar-toggleable">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <button class="nav-link btn btn-link btn-sm" type="button"
-                title="일반(?) nav-item이 없으면 오른쪽으로 몰아놓은 사용자 항목이 밑으로 처지기 때문에 추가. 게스트용 템플릿의 참고 항목도 이거 때문이다."
-                th:remove="all">알박기
-        </button>
-      </li>
-      <li class="nav-item navbar-toggler-right dropdown">
-        <button id="nav-item-account" class="nav-link btn btn-link btn-sm dropdown-toggle" type="button"
-                data-toggle="dropdown">사용자
-        </button>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-item-account">
-          <a class="dropdown-item" href="profile.html">Settings</a>
-          <div class="dropdown-divider"></div>
-          <form id="navbar-account-logout" class="ghost" action="../index.html" method="post"></form>
-          <button class="dropdown-item" form="navbar-account-logout">LOG-OUT</button>
-          <div class="dropdown-divider" th:remove="all"></div>
-          <a class="dropdown-item" href="../_components/gnb/user.html" th:remove="all">GNB Template</a>
-          <a class="dropdown-divider" href="#" th:remove="all"></a>
-          <a class="dropdown-item" href="https://kobalttown.firebaseapp.com" target="_blank" th:remove="all">kobalttown.firebaseapp.com</a>
-          <a class="dropdown-item" href="https://github.com/JustBurrow/kobalttown" target="_blank" th:remove="all">GitHub</a>
-          <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com" target="_blank"
-             th:remove="all">Bootstrap</a>
-          <a class="dropdown-item" href="https://jquery.com" target="_blank" th:remove="all">jQuery</a>
-          <a class="dropdown-item" href="http://tether.io" target="_blank" th:remove="all">Tether</a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</nav>
+<!--/*@thymesVar id="#temporals" type="org.thymeleaf.extras.java8time.expression.Temporals"*/-->
+<div th:replace="_components/gnb/index :: gnb">
+  <nav class="fixed-top navbar nav navbar-toggleable navbar-inverse bg-inverse" role="navigation">
+    <a class="navbar-brand" href="../dashboard.html">Kobalttown</a>
+    <div class="collapse navbar-collapse navbar-toggleable">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="nav-link btn btn-link btn-sm" type="button"
+                  title="일반(?) nav-item이 없으면 오른쪽으로 몰아놓은 사용자 항목이 밑으로 처지기 때문에 추가. 게스트용 템플릿의 참고 항목도 이거 때문이다."
+                  th:remove="all">알박기
+          </button>
+        </li>
+        <li class="nav-item navbar-toggler-right dropdown">
+          <button id="nav-item-account" class="nav-link btn btn-link btn-sm dropdown-toggle" type="button"
+                  data-toggle="dropdown">사용자
+          </button>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="nav-item-account">
+            <a class="dropdown-item" href="profile.html">Settings</a>
+            <div class="dropdown-divider"></div>
+            <form id="navbar-account-logout" class="ghost" action="../index.html" method="post"></form>
+            <button class="dropdown-item" form="navbar-account-logout">LOG-OUT</button>
+            <div class="dropdown-divider" th:remove="all"></div>
+            <a class="dropdown-item" href="../_components/gnb/user.html" th:remove="all">GNB Template</a>
+            <a class="dropdown-divider" href="#" th:remove="all"></a>
+            <a class="dropdown-item" href="https://kobalttown.firebaseapp.com" target="_blank" th:remove="all">kobalttown.firebaseapp.com</a>
+            <a class="dropdown-item" href="https://github.com/JustBurrow/kobalttown" target="_blank" th:remove="all">GitHub</a>
+            <a class="dropdown-item" href="https://v4-alpha.getbootstrap.com" target="_blank"
+               th:remove="all">Bootstrap</a>
+            <a class="dropdown-item" href="https://jquery.com" target="_blank" th:remove="all">jQuery</a>
+            <a class="dropdown-item" href="http://tether.io" target="_blank" th:remove="all">Tether</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
 <div th:replace="_components/gnb/index :: gnb"></div>
 <div class="container-fluid row">
   <aside class="col-2" th:replace="_components/account/subnav :: subnav">
@@ -65,7 +68,7 @@
     </ul>
   </aside>
   <main class="col container">
-    <!--/*@thymesVar id="account" type="kr.lul.rkobalttown.ms.account.borderline.dto.AccountDto"*/-->
+    <!--/*@thymesVar id="account" type="kr.lul.kobalttown.ms.account.borderline.dto.AccountDto"*/-->
     <h1>프로필</h1>
     <dl class="my-5 row">
       <dt class="col-2">ID</dt>
@@ -73,11 +76,19 @@
       <dt class="col-2">이름</dt>
       <dd class="col-4" th:text="${account.name}"></dd>
       <dt class="col-2">E-Mail</dt>
-      <dd class="col-4" th:text="${account.email}">email</dd>
+      <dd class="col-4"><code th:text="${account.email}">email</code></dd>
       <dt class="col-2">등록일</dt>
-      <dd class="col-4" th:text="${account.create}">create</dd>
+      <dd class="col-4">
+        <time th:datetime="${account.create}" th:text="${#temporals.format(account.create, 'yyyy-MM-dd hh:mm VV')}">
+          create
+        </time>
+      </dd>
       <dt class="col-2">변경일</dt>
-      <dd class="col-4" th:text="${account.update}">update</dd>
+      <dd class="col-4">
+        <time th:datetime="${account.update}" th:text="${#temporals.format(account.update, 'yyyy-MM-dd hh:mm VV')}">
+          update
+        </time>
+      </dd>
     </dl>
   </main>
 </div>

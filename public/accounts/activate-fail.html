@@ -25,7 +25,7 @@
 <div th:replace="_components/gnb/index :: gnb">
   <nav class="fixed-top navbar nav navbar-toggleable navbar-inverse bg-inverse" role="navigation"
        th:replace="_component/gnb/user :: navbar">
-    <a class="navbar-brand" href="../dashboard.html" th:href="@{/}">Kobalttown</a>
+    <a class="navbar-brand" href="../index.html">Kobalttown</a>
     <div class="collapse navbar-collapse navbar-toggleable">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -60,14 +60,11 @@
 </div>
 <div th:replace="_components/gnb/index :: gnb"></div>
 <main class="container-fluid">
-  <div class="m-4 alert alert-danger">
-    <h1>계정 활성화 실패</h1>
-    <div class="my-3">
-      <p>존재하지 않거나 이미 사용된 활성화 코드입니다.</p>
-      <!--TODO-->
-      <a class="btn btn-lg btn-secondary" href="activate-issue.html" th:href="@{/account/activate/issue}">재발급</a>
-    </div>
+  <h1>계정 활성화 실패</h1>
+  <div class="m-3 jumbotron">
+    <p>존재하지 않거나 이미 사용된 활성화 코드입니다.</p>
   </div>
+  <a class="m-3 btn btn-lg btn-secondary" href="activate-issue.html" th:href="@{/accounts/activate}">재발급</a>
 </main>
 </body>
 </html>
