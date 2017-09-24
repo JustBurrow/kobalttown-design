@@ -44,7 +44,6 @@
 </div>
 <div class="container-fluid">
   <main>
-    <div class="jumbotron"></div>
     <div class="row">
       <div class="col">
         <section class="card">
@@ -78,7 +77,9 @@
             </div>
           </form>
           <div class="card-footer">
-            <button class="btn btn-primary" form="signup-form">SIGN-UP</button>
+            <button class="btn btn-primary" form="signup-form">등록</button>
+            <!--TODO-->
+            <a class="btn btn-secondary" href="accounts/activate-issue.html" th:href="@{/accounts/activate/issue}"></a>
           </div>
         </section>
       </div>
@@ -102,7 +103,9 @@
             </div>
           </form>
           <div class="card-footer">
-            <button class="btn btn-primary" form="login-form">LOG-IN</button>
+            <button class="btn btn-primary" form="login-form">로그인</button>
+            <!--TODO-->
+            <a class="btn btn-secondary" href="accounts/password-reset.html" th:href="@{/accounts/reset}"></a>
           </div>
         </section>
       </div>
