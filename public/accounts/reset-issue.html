@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta name="author" content="justburrow" th:remove="all"/>
+  <meta name="since" content="2017. 9. 24." th:remove="all"/>
+  <meta name="project" content="kobalttown-server" th:remove="all"/>
+  <meta name="repository" content="https://github.com/JustBurrow/kobalttown" th:remove="all"/>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+  <title>계정 재설정 - Kobalttown</title>
+  <link rel="icon" href="../favicon.ico" th:href="@{/favicon.ico}"/>
+
+  <link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+  <link rel="stylesheet" href="../css/kobalttown.css" th:href="@{/css/kobalttown.css}"/>
+
+  <script src="../js/jquery-3.2.1.js" th:src="@{/js/jquery-3.2.1.js}"></script>
+  <script src="../js/tether.js" th:src="@{/js/tether.js}"></script>
+  <script src="../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+  <script src="../js/kobalttown.js" th:src="@{/js/kobalttown.js}"></script>
+</head>
+<body>
+<!--/*@thymesVar id="#temporals" type="org.thymeleaf.extras.java8time.expression.Temporals"*/-->
+<div th:replace="_components/gnb/index :: gnb"></div>
+<main class="container-fluid">
+  <h1>계정 재설정</h1>
+  <form id="form-reset" class="ghost" action="reset-issued.html" method="post"
+        th:action="@{/accounts/reset}"></form>
+  <section class="m-3 card">
+    <div class="card-header"><h2 class="card-title">재설정 코드 요청</h2></div>
+    <div class="card-block">
+      <div class="form-group row">
+        <label class="col-2 form-control-label" for="email">E-Mail</label>
+        <div class="col">
+          <input type="email" id="email" class="form-control" placeholder="연락용 E-Mail 주소를 입력하세요."
+                 form="form-reset" name="email" required="required"/>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-primary" form="form-reset">코드 발급</button>
+    </div>
+  </section>
+</main>
+</body>
+</html>
