@@ -2,23 +2,23 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta name="author" content="justburrow" th:remove="all"/>
-  <meta name="since" content="2017. 9. 24." th:remove="all"/>
+  <meta name="since" content="2017. 10. 8." th:remove="all"/>
   <meta name="project" content="kobalttown-server" th:remove="all"/>
   <meta name="repository" content="https://github.com/JustBurrow/kobalttown" th:remove="all"/>
 
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-  <title>활성화 코드 발급 - Kobalttown</title>
+  <title>계정 활성화 코드 재발급 결과 - Kobalttown</title>
   <link rel="icon" href="../favicon.ico" th:href="@{/favicon.ico}"/>
 
   <link rel="stylesheet" href="../css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
   <link rel="stylesheet" href="../css/kobalttown.css" th:href="@{/css/kobalttown.css}"/>
 
-  <script type="application/javascript" src="../js/jquery-3.2.1.js" th:src="@{/js/jquery-3.2.1.js}"></script>
-  <script type="application/javascript" src="../js/tether.js" th:src="@{/js/tether.js}"></script>
-  <script type="application/javascript" src="../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
-  <script type="application/javascript" src="../js/kobalttown.js" th:src="@{/js/kobalttown.js}"></script>
+  <script src="../js/jquery-3.2.1.js" th:src="@{/js/jquery-3.2.1.js}"></script>
+  <script src="../js/tether.js" th:src="@{/js/tether.js}"></script>
+  <script src="../js/bootstrap.js" th:src="@{/js/bootstrap.js}"></script>
+  <script src="../js/kobalttown.js" th:src="@{/js/kobalttown.js}"></script>
 </head>
 <body>
 <!--/*@thymesVar id="#temporals" type="org.thymeleaf.extras.java8time.expression.Temporals"*/-->
@@ -58,23 +58,15 @@
     </div>
   </nav>
 </div>
-<div th:replace="_components/gnb/index :: gnb"></div>
-<main class="container-fluid">
-  <h1>활성화 코드 발급</h1>
-  <section class="m-3 card">
-    <div class="card-block">
-      <form action="activate-success.html" method="post" th:action="@{/accounts/activate}">
-        <div class="form-group row">
-          <label class="col-2 form-control-label" for="email">E-Mail</label>
-          <div class="col">
-            <input type="email" id="email" class="form-control" placeholder="이메일 주소를 입력하세요."
-                   name="email" required="required"/>
-          </div>
-        </div>
-        <button class="btn btn-primary">재발급</button>
-      </form>
+<div>
+  <main class="container-fluid">
+    <h1>계정 활성화 코드 재발급 결과</h1>
+    <div class="m-3 jumbotron">
+      <p>계정 활성화 코드를 재발급했습니다. 메일을 확인한 후, 메일의 링크로 이동하시기 바랍니다.</p>
+      <hr class="jumbotron-hr"></hr>
+      <a class="btn btn-lg btn-secondary" href="../index.html" th:href="@{/}">로그인</a>
     </div>
-  </section>
-</main>
+  </main>
+</div>
 </body>
 </html>
