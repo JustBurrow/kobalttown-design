@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+<!--/*@thymesVar id="account" type="kr.lul.kobalttown.ms.account.borderline.dto.AccountDto"*/-->
+<!--/*@thymesVar id="host" type="java.lang.String"*/-->
+<!--/*@thymesVar id="code" type="java.lang.String"*/-->
+<h1>계정 재설정</h1>
+<dl>
+  <dt>이름</dt>
+  <dd th:text="${account.name}">name</dd>
+  <dt>E-Mail</dt>
+  <dd th:text="${account.email}">email</dd>
+  <dt>활성화 페이지</dt>
+  <dd>
+    <a href="#"
+       th:href="@{__${host}__/accounts/reset/__${code}__}"
+       th:text="${host} +'/accounts/reset/' +${code}">activate url</a>
+  </dd>
+  <dt>유효기간</dt>
+  <dd>
+    <time th:text="${expire}">expire</time>
+  </dd>
+</dl>
+</body>
+</html>
