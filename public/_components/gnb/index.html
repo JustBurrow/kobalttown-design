@@ -23,8 +23,8 @@
 <body>
 <!--/*@thymesVar id="#temporals" type="org.thymeleaf.extras.java8time.expression.Temporals"*/-->
 <div th:fragment="gnb">
-  <nav
-      th:replace="_components/gnb/__${#authorization.expr('hasAuthority(''ROLE_ANONYMOUS'')') ? 'guest' : 'user'}__ :: navbar">
+  <nav th:replace="_components/gnb/__${#authorization.expr('hasAuthority(''ROLE_ANONYMOUS'')') ? 'guest' : 'user'}__
+      :: navbar">
     <a class="navbar-brand" href="../../index.html">Kobalttown</a>
     <div class="collapse navbar-collapse navbar-toggleable">
       <ul class="navbar-nav">
